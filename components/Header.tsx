@@ -9,7 +9,7 @@ const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeSearch, setActiveSearch] = useState(false);
   const [activeDesktopSearch, setActiveDesktopSearch] = useState(false);
-  activeMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
+  // activeMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
 
   return (
     <section className="border-black relative bg-darkBlue text-white p-5">

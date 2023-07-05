@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+External Libraries Used:
+
+typescript
+tailwind
+
+react-feather: https://github.com/feathericons/react-feather
+framer-motion: https://www.framer.com/motion/
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

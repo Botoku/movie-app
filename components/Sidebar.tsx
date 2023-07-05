@@ -16,7 +16,7 @@ const Sidebar = () => {
     setFilterShow(e.target.value);
   };
   return (
-    <div className="p-4 w-[260px]">
+    <div className="p-4 w-[260px] hidden sm:block mt-8">
       <div className="shadow-[0_0_5px_rgba(0,0,0,.5)] rounded-lg px-1 py-2 text-sm mb-3">
         <div
           className="flex w-full justify-between cursor-pointer"
@@ -199,12 +199,12 @@ const Sidebar = () => {
 
           <div className="pt-3 px-2">
             <p className="text-gray-400">Release Dates</p>
-            <p className="flex items-center mb-2">
+            <div className="flex items-center mb-2">
               <div className="bg-blue-400 w-4 h-4 flex justify-center items-center rounded-sm mr-1">
                 <Check className="w-3 h-3 text-white" />
               </div>
               Search all releases?
-            </p>
+            </div>
             <div className="flex justify-between mb-2 items-center relative">
               <label htmlFor="fromDate" className="text-gray-300">
                 from
@@ -218,7 +218,7 @@ const Sidebar = () => {
                 } border rounded-lg focus:text-gray-600 p-1 bg-transparent`}
                 onChange={(e) => setFromDate(e.target.value)}
               />
-              <div className="absolute right-0 bg-gray-300 h-[30px] w-7 -z-10 top-1/2 -translate-y-1/2 rounded-r-lg"/>
+              <div className="absolute right-0 bg-gray-300 h-[30px] w-7 -z-10 top-1/2 -translate-y-1/2 rounded-r-lg" />
             </div>
             <div className="flex justify-between items-center  border-b pb-3 relative">
               <label htmlFor="toDate" className="text-gray-300">
@@ -231,14 +231,16 @@ const Sidebar = () => {
                 onChange={(e) => setToDate(e.target.value)}
                 className="text-gray-600 border rounded-lg p-1 bg-transparent"
               />
-              <div className="absolute right-0 bg-gray-300 h-[30px] w-7 -z-10 top-0 rounded-r-lg"/>
-
+              <div className="absolute right-0 bg-gray-300 h-[30px] w-7 -z-10 top-0 rounded-r-lg" />
             </div>
             <div className="pt-3">
               <p className="text-gray-600 mb-3">Genres</p>
               <div className="flex flex-wrap">
                 {genres.map((genre) => (
-                  <div className="border border-gray-400 w-max rounded-full px-[.75rem] py-[.25rem] mr-2 mb-2 font-semibold text-[.7rem]">
+                  <div
+                    key={genre.name}
+                    className="border border-gray-400 w-max rounded-full px-[.75rem] py-[.25rem] mr-2 mb-2 font-semibold text-[.7rem]"
+                  >
                     {genre.name}
                   </div>
                 ))}

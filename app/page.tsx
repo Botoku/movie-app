@@ -1,15 +1,17 @@
-import MovieList from '@/components/MovieList'
-import Image from 'next/image'
+import MovieList from "@/components/MovieList";
+import Image from "next/image";
+import Sidebar from "@/components/Sidebar";
+import Temp from "@/components/Temp";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>IMDB Movie app</h1>
-      <div className="">
-        <div>Sidebar</div>
-        <div><MovieList /></div>
+    <main className="">
+      <div className="md:flex">
+        <div className="flex">
+          <Sidebar/>
+          <MovieList />
+        </div>
       </div>
-
     </main>
-  )
+  );
 }
