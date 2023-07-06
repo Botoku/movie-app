@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} h-[100vh] w-[100vw]`} >
+        <head><link rel="icon" href="/logo.svg" sizes="any" /></head>
         <Header />
         {children}
       </body>

@@ -17,6 +17,7 @@
     "country-data-list": "^1.3.0",
     "flowbite": "^1.7.0",
     "flowbite-react": "^0.4.10",
+    "framer-motion": "^10.12.18",
     "iso-639-1": "^2.1.15",
     "next": "13.4.7",
     "postcss": "8.4.24",
