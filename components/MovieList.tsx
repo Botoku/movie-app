@@ -30,7 +30,7 @@ const MovieList = async () => {
 
 
   return (
-    <div className="flex items-center flex-col w-full mr-[25px]">
+    <div className="flex items-center flex-col w-full mr-[25px] z[-1]">
       {!fetching && movies && <div className="pt-3">
         <div className="flex gap-5">
           <p onClick={() => handleCategoryClick('upcoming')} className="bg-darkBlue px-3 py-1 cursor-pointer text-white rounded-full border-none outline-none">Upcoming</p>

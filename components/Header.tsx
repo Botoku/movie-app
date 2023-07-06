@@ -41,15 +41,15 @@ const Header = () => {
   }, [debouncedValue]);
 
   return (
-    <motion.section initial={{opacity: 0, y: -20}} animate={{opacity: 1, y: 1}} transition={{duration: 1}} className="border-black relative bg-darkBlue text-white p-5">
+    <motion.section initial={{opacity: 0, y: -20}} animate={{opacity: 1, y: 1}} transition={{duration: 1}} className="border-black relative bg-darkBlue text-white p-5 z-[400]">
       <div
         className={`${
           debouncedValue ? "visible " : "hidden "
-        } absolute -bottom-7 w-[300px] left-1/2 translate-y-[100%] z-[400] -translate-x-1/2 `}
+        } absolute -bottom-7 w-[300px] left-1/2 translate-y-[100%] -translate-x-1/2 `}
       >
         <X
           onClick={() => setSearchValue("")}
-          className={`bg-darkBlue flex rounded-full items-center justify-center`}
+          className={`bg-darkBlue flex rounded-full items-center justify-center cursor-pointer`}
         />
         {movie && (
           <div className=" p-4 rounded-lg bg-darkBlue text-sm ">
