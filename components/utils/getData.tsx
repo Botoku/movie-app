@@ -4,32 +4,21 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNDBhMTE2NmI5YzcwMGFkNjlkMjY4NDFmM2Y3Yjg2OSIsInN1YiI6IjY0YTMwNjg4ZTlkYTY5MDBhZTJmMTZjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Agq56RzOX7Hgq5ylJLNHc2KFGbo-K9C2cPL7aFDXZWY`,
   },
 };
-export const getMovies = (category: string = "top_rated") => {
-   fetch(
-    `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response.results)
-      let tempdata = response.results
-      return tempdata;
-    })
-    .catch((err) => console.log(err.status_message));
-};
 
-export const getMovie = (id: string) => {
-  fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
-  .then((response) => response.json())
-  .then((response) => {
-    console.log(response.results);
-    return response.results;
-  })
-  .catch((err) => console.error(err));
 
-  // fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+export const getMovies = async (category:string) => {
+  const res = await(fetch( `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1&api_key=${process.env.NEXT_PUBLIC_API_KEY}`))
+  const data = await res.json()
+  return data
+}
 
-};
+export const getMovie = async (id:string) => {
+  const res = await(fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&append_to_response=credits`))
+  const data = await res.json()
+  console.log(data)
+  return data
+ 
+}

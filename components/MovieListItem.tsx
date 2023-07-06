@@ -4,7 +4,7 @@ import { retrieveGenre } from "./utils/genreList";
 import Image from "next/image";
 import CircularProgress from "./CircularProgress";
 
-type Props = {
+type MovieListItemProps = {
   image: string;
   title: string;
   releaseDate: string;
@@ -17,7 +17,7 @@ const MovieListItem = ({
   releaseDate,
   voteAverage,
   genres,
-}: Props) => {
+}: MovieListItemProps) => {
   const genre: string[] = [];
   genres.forEach((genreId: number) => {
     genre.push(retrieveGenre(+genreId));
