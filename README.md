@@ -16,7 +16,7 @@ React Slick Carousel
 
 ## Deployment
 
-Check out the deployed version at 
+Check out the deployed version at https://movie-app-seven-psi.vercel.app
 The project needs the user who wishes to download the code and test to add your own API key either in the getData file in the utils directory or to create your own .env.local file and add your API key with the following name process.env.NEXT_PUBLIC_API_KEY 
 
 ## Learn More
