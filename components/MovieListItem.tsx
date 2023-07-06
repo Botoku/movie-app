@@ -3,6 +3,7 @@ import React from "react";
 import { retrieveGenre } from "./utils/genreList";
 import Image from "next/image";
 import CircularProgress from "./CircularProgress";
+import { progressColor } from "./utils/getData";
 
 type MovieListItemProps = {
   image: string;
@@ -40,7 +41,8 @@ const MovieListItem = ({
         <div className="absolute bottom-0 left-2 -translate-y-full z-10 w-12">
           <CircularProgress
             value={Math.floor(voteAverage * 10)}
-            color="#0e9b71"
+            color={progressColor(Math.floor(+voteAverage! * 10))!}
+
           />
         </div>
       </div>

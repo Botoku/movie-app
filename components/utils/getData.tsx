@@ -1,6 +1,6 @@
 
 const options = {
-  next: { revalidate: 0 },
+  next: { revalidate: 300 },
   method: "GET",
   headers: {
     accept: "application/json",
@@ -21,4 +21,10 @@ export const getMovie = async (id:string) => {
   console.log(data)
   return data
  
+}
+
+export const progressColor = (value:number) => {
+if (value < 35) return "red"
+if (value >= 35 && value < 70 ) return "yellow"
+if (value >= 70 ) return "green"
 }

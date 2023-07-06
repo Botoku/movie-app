@@ -9,7 +9,7 @@ const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeSearch, setActiveSearch] = useState(false);
   const [activeDesktopSearch, setActiveDesktopSearch] = useState(false);
-  // activeMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
+  activeMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
 
   return (
     <section className="border-black relative bg-darkBlue text-white p-5">
@@ -42,7 +42,7 @@ const Header = () => {
             activeMenu
               ? "absolute top-0 left-0  h-[100vh] w-screen md:relative"
               : "hidden"
-          } flex items-center justify-around flex-col bg-black py-8`}
+          } flex items-center justify-around flex-col bg-black py-8 z-[300]`}
         >
           <div
             className="absolute top-3 left-1/2 bg-darkBlue rounded-full flex items-center justify-center w-8 h-8"
@@ -52,9 +52,9 @@ const Header = () => {
           </div>
           <div className="flex flex-col items-center w-3/4 ">
             <div className="mb-4">
-              <div className="cursor-pointer" onClick={() => setActiveMenu(!activeMenu)}>
+              <Link href='/' className="cursor-pointer" onClick={() => setActiveMenu(!activeMenu)}>
                 <Image src={Logo} width={160} alt="TMDB logo" />
-              </div>
+              </Link>
             </div>
             <div className="flex justify-between w-full">
               <Link href="#" onClick={() => setActiveMenu(!activeMenu)}>
@@ -81,9 +81,9 @@ const Header = () => {
       </div>
       <div className="hidden  md:flex justify-between ">
         <div className="flex items-center">
-          <div className="mr-2">
+          <Link href="/" className="mr-2">
             <Image src={Logo} width={160} alt="TMDB logo" />
-          </div>
+          </Link>
           <div className="flex">
             <Link href="#" className="md:mr-2 lg:mr-4">
               Movies

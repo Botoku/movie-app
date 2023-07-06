@@ -11,6 +11,11 @@ type Movie = {
   poster_path: string;
   backdrop_path: string;
   genre_ids: number[];
+  runtime: number
+  genres?: {
+    name: string;
+    id: number
+  }[];
   vote_average: number;
   release_date: string;
   original_language?: string;
