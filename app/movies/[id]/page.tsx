@@ -45,7 +45,6 @@ const movieDetail = ({ params: { id } }: any) => {
 
   return (
     <section className="max-w-full">
-      {fetching && <p>Loading</p>}
       {!fetching && movie && (
         <>
           <div className="items-center justify-center hidden md:flex">
@@ -141,7 +140,7 @@ const movieDetail = ({ params: { id } }: any) => {
               <div className="flex justify-between md:w-1/2">
                 <div>
                   <p className="font-bold mb-1 text-sm">
-                    {movie?.credits?.crew && movie?.credits?.crew[0].name}
+                    {movie?.credits?.crew?.length && movie?.credits?.crew[0].name}
                   </p>
                   <p className="opacity-60">
                     {movie?.credits?.crew && movie?.credits?.crew[0].job}
@@ -149,7 +148,7 @@ const movieDetail = ({ params: { id } }: any) => {
                 </div>
                 <div className="mb-5">
                   <p className="font-semibold mb-1 ">
-                    {movie?.credits?.cast && movie?.credits?.cast[0].name}
+                    {movie?.credits?.cast?.length && movie?.credits?.cast[0].name}
                   </p>
                   <p className="opacity-60 text-sm">Characters</p>
                 </div>

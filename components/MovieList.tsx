@@ -12,7 +12,6 @@ type FetchedMovies = {
 
 const MovieList = async () => {
   const [movies, setMovies] = useState<FetchedMovies | null>(null);
-  // const [movie, setMovie] = useState('');
   const [fetching, setFetching] = useState(true)
   const [category, setCategory] = useState("top_rated");
   async function fetchMovies(){
@@ -23,7 +22,6 @@ const MovieList = async () => {
   useEffect(()=>{
     fetchMovies()
   },[category])
-  console.log(movies)
 
   const handleCategoryClick = (cat:string) => {
     setFetching(true)
@@ -32,16 +30,15 @@ const MovieList = async () => {
 
 
   return (
-    <div className="flex items-center flex-col">
-      <div className="pt-3">
+    <div className="flex items-center flex-col w-full mr-[25px]">
+      {!fetching && movies && <div className="pt-3">
         <div className="flex gap-5">
-          <p onClick={() => handleCategoryClick('upcoming')} className="bg-darkBlue px-2 py-1 cursor-pointer">Upcoming</p>
-          <p onClick={() => handleCategoryClick('popular')} className="bg-darkBlue px-2 py-1 cursor-pointer">Popular</p>
-          <p onClick={() => handleCategoryClick('top_rated')} className="bg-darkBlue px-2 py-1 cursor-pointer">Top Rated</p>
+          <p onClick={() => handleCategoryClick('upcoming')} className="bg-darkBlue px-3 py-1 cursor-pointer text-white rounded-full border-none outline-none">Upcoming</p>
+          <p onClick={() => handleCategoryClick('popular')} className="bg-darkBlue px-3 py-1 cursor-pointer text-white rounded-full border-none outline-none">Popular</p>
+          <p onClick={() => handleCategoryClick('top_rated')} className="bg-darkBlue px-3 py-1 cursor-pointer text-white rounded-full border-none outline-none">Top Rated</p>
         </div>
-      </div>
-      <div className="flex flex-wrap gap-4 justify-center mt-4">
-        {/* {fetching && <p>Loading</p>} */}
+      </div>}
+      <div className="flex flex-wrap gap-4 justify-center mt-4 w-full">
         {!fetching && movies && movies?.results.map((movie: Movie) => {
           return (
             <Link href={`/movies/${movie.id}`}

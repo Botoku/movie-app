@@ -16,7 +16,7 @@ const Sidebar = () => {
     setFilterShow(e.target.value);
   };
   return (
-    <div className="p-4 w-[260px] hidden sm:block mt-8">
+    <div className="p-4 min-w-[260px] max-w-[320px] hidden sm:block mt-8 w-[30%]">
       <div className="shadow-[0_0_5px_rgba(0,0,0,.5)] rounded-lg px-1 py-2 text-sm mb-3">
         <div
           className="flex w-full justify-between cursor-pointer"

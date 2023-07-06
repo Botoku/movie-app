@@ -1,7 +1,6 @@
 import MovieList from "@/components/MovieList";
 import Image from "next/image";
 import Sidebar from "@/components/Sidebar";
-import Temp from "@/components/Temp";
 
 export default function Home() {
   return (

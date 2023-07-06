@@ -25,7 +25,8 @@ const MovieListItem = ({
   });
 
   function convertDate(date:string) {
-    return new Date(date).toDateString().slice(4)
+    var date1 =  `${new Date(date).toDateString().slice(4, 10)}, ${new Date(date).toDateString().slice(10)}`
+    return date1
   }
 
   return (
@@ -38,20 +39,21 @@ const MovieListItem = ({
           alt={title}
           className="object-cover rounded-t-lg"
         />
-        <div className="absolute bottom-0 left-2 -translate-y-full z-10 w-12">
+       
+      </div>
+      <div className="py-6 px-2 relative">
+      <div className="absolute top-0 left-2 -translate-y-1/2 z-10 w-12">
           <CircularProgress
             value={Math.floor(voteAverage * 10)}
             color={progressColor(Math.floor(+voteAverage! * 10))!}
 
           />
         </div>
-      </div>
-      <div className="py-5 px-2">
         <h3 className="font-bold">{title}</h3>
-        <p>{convertDate(releaseDate)}</p>
+        <p className="mb-2 opacity-60">{convertDate(releaseDate)}</p>
         <div>
           {genre.slice(0, 3).map((el) => (
-            <p key={el} className="inline-block rounded-full bg-darkBlue text-white px-2 py-1">{el}</p>
+            <p key={el} className="inline-block rounded-full bg-darkBlue text-white px-2 py-1 mr-3 mb-1">{el}</p>
           ))}
         </div>
       </div>

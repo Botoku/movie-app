@@ -1,12 +1,5 @@
 
-const options = {
-  next: { revalidate: 300 },
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNDBhMTE2NmI5YzcwMGFkNjlkMjY4NDFmM2Y3Yjg2OSIsInN1YiI6IjY0YTMwNjg4ZTlkYTY5MDBhZTJmMTZjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Agq56RzOX7Hgq5ylJLNHc2KFGbo-K9C2cPL7aFDXZWY`,
-  },
-};
+
 
 
 export const getMovies = async (category:string) => {
@@ -18,13 +11,19 @@ export const getMovies = async (category:string) => {
 export const getMovie = async (id:string) => {
   const res = await(fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&append_to_response=credits`))
   const data = await res.json()
-  console.log(data)
+  return data
+ 
+}
+
+export const searchMovie = async (id:string) => {
+  const res = await(fetch( `https://api.themoviedb.org/3/search/movie?query=${id}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`))
+  const data = await res.json()
   return data
  
 }
 
 export const progressColor = (value:number) => {
-if (value < 35) return "red"
-if (value >= 35 && value < 70 ) return "yellow"
-if (value >= 70 ) return "green"
+if (value < 35) return "rgb(242, 45, 15)"
+if (value >= 35 && value < 70 ) return "rgb(242, 216, 15)"
+if (value >= 70 ) return "rgb(43, 181, 27)"
 }
